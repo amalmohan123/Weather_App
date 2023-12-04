@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:weather_app/view/select_citys/select_citys.dart';
 
 class GetStarted extends StatefulWidget {
   const GetStarted({
@@ -23,12 +24,21 @@ class _GetStartedState extends State<GetStarted> {
             'assets/lottie/Animation - 1701413366703.json',
           ),
           ElevatedButton(
-            child: const Text('Get Started',style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => const SelectCitys()));
+            },
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(Colors.blue.shade400),
               padding: MaterialStateProperty.all(EdgeInsets.all(12)),
-              // textStyle: MaterialStateProperty.all(TextStyle(fontSize:15 )),s
+    
+            ),
+            child: const Text(
+              'Get Started',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
             ),
           ),
         ],
