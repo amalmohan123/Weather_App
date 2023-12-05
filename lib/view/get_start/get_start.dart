@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:weather_app/view/select_citys/select_citys.dart';
+import 'package:weather_app/view/select_cities/select_citys.dart';
 
 class GetStarted extends StatefulWidget {
   const GetStarted({
@@ -30,7 +30,7 @@ class _GetStartedState extends State<GetStarted> {
             },
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(Colors.blue.shade400),
-              padding: MaterialStateProperty.all(EdgeInsets.all(12)),
+              padding: MaterialStateProperty.all(const EdgeInsets.all(12)),
     
             ),
             child: const Text(
