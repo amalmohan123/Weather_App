@@ -38,13 +38,27 @@ class _HomeState extends State<Home> {
     var searchResult = await http.get(
       Uri.parse(searchLocationUrl),
     );
-    var result = json.decode(searchResult.body);
+    var result = json.decode(searchResult.body)[0];
+    // print(result["woeid"]);
+    setState(() {
+      woeid = result['woeid'];
+    });
+  }
+
+  void fetchWeatherData() async {
+    var weatherResult = await http.get(
+      Uri.parse(
+        searchWeatherUrl + woeid.toString(),
+      ),
+    );
+    var result = json.decode(weatherResult.body);
     print(result);
   }
 
   @override
   void initState() {
     fechLocation(cities[0]);
+    fetchWeatherData();
     super.initState();
   }
 
@@ -53,7 +67,8 @@ class _HomeState extends State<Home> {
     // Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text('hbahb'),
+        centerTitle: true,
+        title: Text('WEATHER APP'),
       ),
     );
   }
